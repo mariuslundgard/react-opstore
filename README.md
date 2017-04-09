@@ -46,7 +46,7 @@ const store = createStore({count: 0})
 
 render(
   <Provider store={store}>
-    <App />
+    <ConnectedApp />
   </Provider>,
   document.body
 )
