@@ -32,7 +32,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => state
 
-const mapStateToProps = (store) => {
+const mapStoreToProps = (store) => {
   const countRef = store.ref('count')
   return {
     decr: () => countRef.decr(),
