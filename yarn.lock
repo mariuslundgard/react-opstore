@@ -2010,9 +2010,9 @@ onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
-opstore@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/opstore/-/opstore-1.0.1.tgz#071933d498a535a06b3cc1e84212e2c363a87166"
+opstore@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/opstore/-/opstore-1.0.4.tgz#d4fe4204eff4035c8cdd22a005f49b2984e19ef9"
   dependencies:
     "@yr/property" "^7.0.3"
 
