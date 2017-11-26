@@ -6,7 +6,9 @@ React bindings for [`opstore`](https://github.com/mariuslundgard/opstore).
 npm install react-opstore
 ```
 
-[![Build Status](https://travis-ci.org/mariuslundgard/react-opstore.svg?branch=master)](https://travis-ci.org/mariuslundgard/react-opstore)
+[![build status](https://img.shields.io/travis/mariuslundgard/react-opstore/master.svg?style=flat-square)](https://travis-ci.org/mariuslundgard/react-opstore)
+[![coverage status](https://img.shields.io/coveralls/mariuslundgard/react-opstore/master.svg?style=flat-square)](https://coveralls.io/github/mariuslundgard/react-opstore?branch=master)
+[![npm version](https://img.shields.io/npm/v/react-opstore.svg?style=flat-square)](https://www.npmjs.com/package/react-opstore)
 
 > DISCLAIMER: `react-opstore` is inspired by [`react-redux`](https://github.com/reactjs/react-redux).
 
@@ -19,7 +21,7 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div className="couter">
         <button onClick={this.props.decr}>-</button>
@@ -30,9 +32,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => state
+const mapStateToProps = state => state
 
-const mapStoreToProps = (store) => {
+const mapStoreToProps = store => {
   const countRef = store.ref('count')
   return {
     decr: () => countRef.decr(),
@@ -51,3 +53,7 @@ render(
   document.body
 )
 ```
+
+## License
+
+MIT © [Marius Lundgård](https://mariuslundgard.com)
