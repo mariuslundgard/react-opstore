@@ -22,27 +22,23 @@ import {render} from 'react-dom'
 
 class App extends Component {
   render() {
+    const {count} = this.props
+
     return (
-      <div className="couter">
-        <button onClick={this.props.decr}>-</button>
-        <span>{this.props.count}</span>
-        <button onClick={this.props.incr}>+</button>
+      <div className="counter">
+        <button onClick={count.decr}>-</button>
+        <span>{count.get()}</span>
+        <button onClick={count.incr}>+</button>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => state
+const mapStoreToProps = store => ({
+  count: store.ref('count')
+})
 
-const mapStoreToProps = store => {
-  const countRef = store.ref('count')
-  return {
-    decr: () => countRef.decr(),
-    incr: () => countRef.incr()
-  }
-}
-
-const ConnectedApp = connect(mapStateToProps, mapStoreToProps)(App)
+const ConnectedApp = connect(mapStoreToProps)(App)
 
 const store = createStore({count: 0})
 

@@ -45,7 +45,7 @@ interface IConnectedState {
   data: any
 }
 
-export const connect = (mapStateToProps = noop, mapStoreToProps = noop) => (WrappedComponent: ComponentClass): any => {
+export const connect = (mapStoreToProps = noop) => (WrappedComponent: ComponentClass): any => {
   class ConnectedComponent extends Component<any, IConnectedState> {
     public static contextTypes = {
       store: PropTypes.object
@@ -58,16 +58,13 @@ export const connect = (mapStateToProps = noop, mapStoreToProps = noop) => (Wrap
     constructor(props: any, context: IConnectedContext) {
       super(props, context)
       this.store = context.store
-      this.storeProps = mapStoreToProps(this.store)
-      this.state = {
-        data: mapStateToProps(this.store.get())
-      }
+      this.state = {data: mapStoreToProps(this.store)}
     }
 
     public componentDidMount() {
       this.storeSubscription = this.store.subscribe({
         next: (state: any) => {
-          this.setState({data: mapStateToProps(state)})
+          this.setState({})
         }
       })
     }
