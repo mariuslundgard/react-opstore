@@ -74,7 +74,7 @@ export const connect = (mapStoreToProps = noop) => (WrappedComponent: ComponentC
     }
 
     public render() {
-      return createElement(WrappedComponent, Object.assign({}, this.state.data, this.storeProps))
+      return createElement(WrappedComponent, {...this.state.data, ...this.storeProps})
     }
   }
 
