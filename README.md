@@ -17,34 +17,28 @@ npm install react-opstore
 ```js
 import {connect, Provider} from 'react-opstore'
 import {createStore} from 'opstore'
-import React, {Component} from 'react'
+import React from 'react'
 import {render} from 'react-dom'
 
-class App extends Component {
-  render() {
-    const {count} = this.props
-
-    return (
-      <div className="counter">
-        <button onClick={count.decr}>-</button>
-        <span>{count.get()}</span>
-        <button onClick={count.incr}>+</button>
-      </div>
-    )
-  }
-}
+const Counter = ({count}) => (
+  <div className="counter">
+    <button onClick={count.decr}>-</button>
+    <span>{count.get()}</span>
+    <button onClick={count.incr}>+</button>
+  </div>
+)
 
 const mapStoreToProps = store => ({
   count: store.ref('count')
 })
 
-const ConnectedApp = connect(mapStoreToProps)(App)
+const ConnectedCounter = connect(mapStoreToProps)(Counter)
 
 const store = createStore({count: 0})
 
 render(
   <Provider store={store}>
-    <ConnectedApp />
+    <ConnectedCounter />
   </Provider>,
   document.body
 )
